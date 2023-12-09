@@ -36,16 +36,6 @@ body {
     overflow: hidden;
   }
   
-  .background-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-  
   .content-overlay {
     position: relative;
     z-index: 1;
@@ -60,4 +50,9 @@ body {
     text-align: center;
     padding: 1%;
   }
+
+  #particles {
+    background-color: black;
+    height: 100vh;
+}
   

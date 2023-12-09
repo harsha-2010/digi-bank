@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link rel="stylesheet" href="home.component.css">
 </head>
 <body>
 
@@ -21,12 +21,15 @@
   </header>
 
   <div class="welcome-container">
-    <img src="assets/wave-background.jpg" alt="Home Page" class="home-icon" />
-    <h1>Welcome to Digi Bank</h1>
-    <p>Your User-Friendly Banking Interface</p>
-    <br><br>
-    <p>Please Login for Interactive Banking Experience</p>
-    <button (click)="redirectToLogin()">Login</button>
+    <div id="particles">
+    <div class="content-overlay">
+      <h1>Welcome to Digi Bank</h1>
+      <p>Your User-Friendly Banking Interface</p>
+      <br><br>
+      <p>Please Login for Interactive Banking Experience</p>
+      <button (click)="redirectToLogin()">Login</button>
+    </div>
+    </div>
   </div>
 
   <footer>
