@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/account-summary">Account Summary</a></li>
+        <li><a routerLink="/account-details">Account Details</a></li>
+        <li><a routerLink="/transfer">Transfer</a></li>
+        <li style="margin-left: auto;"><a routerLink="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="welcome-container">
+    <img src="assets/wave-background.jpg" alt="Home Page" class="home-icon" />
+    <h1>Welcome to Digi Bank</h1>
+    <p>Your User-Friendly Banking Interface</p>
+    <br><br>
+    <p>Please Login for Interactive Banking Experience</p>
+    <button (click)="redirectToLogin()">Login</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Digi Bank. All rights reserved.</p>
+  </footer>
+</body>
+</html>

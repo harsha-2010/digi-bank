@@ -1,0 +1,74 @@
+<!-- account-summary.component.html -->
+<!-- app.component.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Summary</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/account-summary">Account Summary</a></li>
+        <li><a routerLink="/account-details">Account Details</a></li>
+        <li><a routerLink="/transfer">Transfer</a></li>
+        <li style="margin-left: auto;"><a routerLink="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="account-summary">
+    <h2>Welcome {{this.user?.name}}</h2>
+    <button [hidden]="isMaxAccountsReached()" (click)="addNewAccount()" class="add-account-button">
+      Add New Account
+    </button>
+    <ng-container *ngIf="accounts && accounts.length > 0">
+    <h3 *ngIf="accounts">Below are the list of your accounts</h3>
+    <div *ngIf="showMaxAccountLimitError" class="max-account-limit-error">
+      Maximum accounts limit reached !!
+    </div>
+    <br>
+    
+    <div *ngFor="let account of accounts" class="account-item">
+      <div *ngIf="account.accountType == 'Savings'" class="savings-account">
+        <img src="assets/savings-account.jpg" alt="Account Icon" class="account-icon" />
+        <div class="account-info">
+          <p class="account-number">Account Number - {{ account.accountNumber }}</p>
+          <p class="account-holder-name">Account Holder Name : {{ account.name }}</p>
+          <p class="account-type">Account Type: {{ account.accountType.toString() }}</p>
+          <p class="available-balance">Available Balance: {{ account.availableBalance }}</p>
+        </div>
+      </div>
+      <div *ngIf="account.accountType == 'Current'" class="current-account">
+        <img src="assets/current-account.jpg" alt="Account Icon" class="account-icon" />
+        <div class="account-info">
+          <p class="account-number">Account Number - {{ account.accountNumber }}</p>
+          <p class="account-holder-name">Account Holder Name : {{ account.name }}</p>
+          <p class="account-type">Account Type: {{ account.accountType.toString() }}</p>
+          <p class="available-balance">Available Balance: {{ account.availableBalance }}</p>
+        </div>
+      </div>
+      <div *ngIf="account.accountType == 'Fixed Deposit'" class="fixed-deposit">
+        <img src="assets/fixed-deposit.jpg" alt="Account Icon" class="account-icon" />
+        <div class="account-info">
+          <p class="account-number">Account Number - {{ account.accountNumber }}</p>
+          <p class="account-holder-name">Account Holder Name : {{ account.name }}</p>
+          <p class="account-type">Account Type: {{ account.accountType.toString() }}</p>
+          <p class="available-balance">Available Balance: {{ account.availableBalance }}</p>
+        </div>
+      </div>
+      <a (click)="viewDetails(account.accountNumber)" routerLink="/account-details" >View Details</a>
+    </div>
+    </ng-container>
+  </div>
+  
+  <footer>
+    <p>&copy; 2023 Digi Bank. All rights reserved.</p>
+  </footer>
+</body>
+</html>

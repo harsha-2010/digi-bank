@@ -1,0 +1,94 @@
+<!-- account-form.component.html
+<body>
+<div class="form-container">
+  <h2>Create New Account</h2>
+  <form [formGroup]="accountForm" (submit)="submitForm()">
+    <label for="accountHolderName">Account Holder Name:</label>
+    <input type="text" id="accountHolderName" formControlName="accountHolderName" required>
+    <span *ngIf="accountForm.get('accountHolderName')?.hasError('required')" class="error-message">
+      Account Holder Name is required !!
+    </span>
+
+    <label for="accountType">Account Type:</label>
+    <select id="accountType" formControlName="accountType">
+      <option value="Savings">Savings</option>
+      <option value="Current">Current</option>
+      <option value="Fixed Deposit">Fixed Deposit</option>
+    </select>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" required>
+    <span *ngIf="accountForm.get('email')?.hasError('required')" class="error-message">
+      E-mail is required !!
+    </span>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id="mobile" formControlName="mobile" required>
+    <span *ngIf="accountForm.get('mobile')?.hasError('required')" class="error-message">
+      Mobile Number is required !!
+    </span>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" formControlName="city" required>
+    <span *ngIf="accountForm.get('city')?.hasError('required')" class="error-message">
+      City Name is required !!
+    </span>
+
+    <label for="city">Pincode:</label>
+    <input type="number" id="zip" formControlName="zip" required>
+    <span *ngIf="accountForm.get('zip')?.hasError('required')" class="error-message">
+      Pincode is required !!
+    </span>
+
+    <div *ngIf="errorMessage" class="invalid-message">
+      {{ errorMessage }}
+    </div>
+
+    <button type="submit">Create Account</button>
+  </form>
+</div>
+<br>
+</body> -->
+
+<body>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<section class="create-account">
+			<div class="account-form">
+        	<form [formGroup]="accountForm" (ngSubmit)="submitForm()">
+            <h3>CREATE NEW ACCOUNT</h3>
+            <input type="text" id="accountHolderName" formControlName="accountHolderName" placeholder="ACCOUNT HOLDER NAME" required>
+            <div *ngIf="accountForm.get('accountHolderName')?.hasError('required')" class="error-message">
+              Account Holder Name is required !!
+            </div>
+            
+            <label for="accountType">ACCOUNT TYPE</label>
+              <select id="accountType" formControlName="accountType">
+                <option value="Savings">Savings</option>
+                <option value="Current">Current</option>
+                <option value="Fixed Deposit">Fixed Deposit</option>
+              </select>
+            <input type="email" id="email" formControlName="email" placeholder="E-MAIL" required>
+            <div *ngIf="accountForm.get('email')?.hasError('required')" class="error-message">
+              E-mail is required !!
+            </div>
+            <input type="text" id="mobile" formControlName="mobile" placeholder="MOBILE" required>
+            <div *ngIf="accountForm.get('mobile')?.hasError('required')" class="error-message">
+              Mobile Number is required !!
+            </div>
+            <input type="text" id="city" formControlName="city" placeholder="CITY" required>
+            <div *ngIf="accountForm.get('city')?.hasError('required')" class="error-message">
+              City Name is required !!
+            </div>
+            <input type="number" id="zip" formControlName="zip" placeholder="PINCODE" required>
+            <div *ngIf="accountForm.get('zip')?.hasError('required')" class="error-message">
+              Pincode is required !!
+            </div>
+            <div *ngIf="submitted && accountForm.invalid" class="invalid-message">
+							Please fill all the required fields !!
+						</div>
+						<button class="submit">CREATE ACCOUNT</button>
+            <br>
+          </form>
+				</div>
+	</section>
+</body>

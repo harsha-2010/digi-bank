@@ -1,0 +1,93 @@
+<!-- transfer.component.html
+
+<body>
+    <div class="form-container">
+      <h2>Funds Transfer</h2>
+      <form [formGroup]="transferForm" (submit)="transferFunds()">
+        <div>
+            <span>
+                <label for="sourceAccount">Source Account:</label>
+                <input type="text" id="sourceAccount" formControlName="sourceAccount">
+            </span>
+            <br>
+            <span>
+                <label for="destinationAccount">Destination Account:</label>
+                <input type="text" id="destinationAccount" formControlName="destinationAccount">
+            </span>
+            <br>
+            <span>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" formControlName="amount">
+            </span>
+            <br>
+            <button type = "submit">Transfer</button>
+          </div>
+        <br>
+      </form>
+    </div>
+</body> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/account-summary">Account Summary</a></li>
+        <li><a routerLink="/account-details">Account Details</a></li>
+        <li><a routerLink="/transfer">Transfer</a></li>
+        <li style="margin-left: auto;"><a routerLink="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <section class="fundsTransfer">
+    <div class="transfer">
+        <form [formGroup]="transferForm" (ngSubmit)="transferFunds()">
+            <h3>FUND TRANSFER</h3>
+            
+            <input type="text" id="sourceAccount" formControlName="sourceAccount" [value]="'Source Account - ' + transferForm.get('sourceAccount')?.value" required>
+            <input type="text" id="payeeName" formControlName="payeeName" placeholder="PAYEE NAME">
+            <div *ngIf="transferForm.get('payeeName')?.hasError('required')" class="error-message">
+                This field is required !!
+            </div>
+            <input type="text" id="destinationAccount" formControlName="destinationAccount" placeholder="PAYEE ACCOUNT NUMBER">
+            <div *ngIf="transferForm.get('destinationAccount')?.hasError('required')" class="error-message">
+                This field is required !!
+            </div>
+
+            <input type="text" id="payeeBankName" formControlName="payeeBankName" placeholder="PAYEE BANK NAME">
+
+            <input type="text" id="payeeBankIfscCode" formControlName="payeeBankIfscCode" placeholder="PAYEE BANK'S IFSC CODE">
+
+            <input type="number" id="amount" formControlName="amount" placeholder="AMOUNT">
+            <div *ngIf="transferForm.get('amount')?.hasError('required')" class="error-message">
+                This field is required !!
+            </div>
+            <div *ngIf="transferForm.get('amount')?.hasError('min') || transferForm.get('amount')?.hasError('max')"
+                    class="error-message">
+                    Please enter an amount between 1 and 1,000,000.
+            </div>
+            
+            <div *ngIf="submitted && transferForm.invalid" class="invalid-message">
+                Please fill all the required fields !!
+            </div>
+            <button type="submit">TRANSFER</button>
+            <br>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2023 Digi Bank. All rights reserved.</p>
+  </footer>
+</body>
+</html>

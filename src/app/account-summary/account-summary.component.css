@@ -1,0 +1,147 @@
+/* account-summary.component.css */
+.account-summary {
+    height: fit-content;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 30px;
+  }
+  
+  .account-item {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+
+  .savings-account {
+    display: flex;
+    align-items: center;
+  }
+
+  .current-account {
+    display: flex;
+    align-items: center;
+  }
+
+  .fixed-deposit {
+    display: flex;
+    align-items: center;
+  }
+  
+  .account-icon {
+    width: 100px;
+    height: 120px;
+    border-radius: 20%;
+    margin-right: 20px;
+    margin-top: 50px;
+  }
+
+  button {
+    border: none;
+    padding: 15px 20px; /* Adjust the padding as needed */
+    border-radius: 8px;
+    display: block;
+    position: absolute;
+    top: 85px; /* Adjust the distance from the top */
+    right: 250px; /* Adjust the distance from the right */
+    background: #583672;
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+    -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+    box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+  }
+
+  .max-account-limit-error {
+    color: red;
+    display: block;
+    position: absolute;
+    top: 60px; /* Adjust the distance from the top */
+    right: 250px; /* Adjust the distance from the right */
+    font-weight: bold;
+    font-size: medium;
+  }
+  
+  
+  .account-info {
+    flex: 1;
+  }
+  
+  .account-number {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .account-type {
+    font-size: 16px;
+  }
+  
+  .available-balance {
+    margin-top: 5px; /* Adjusted margin-top */
+    font-size: 16px;
+  }
+  
+  a {
+    margin-top: 5px; /* Adjusted margin-top */
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    padding-left: 120px;
+  }
+
+  .ng-template {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: large;
+  }
+    
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 40px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 17px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    /*position: fixed;
+    bottom: 0;
+    width: 100%; */
+  }
+
+  
+  

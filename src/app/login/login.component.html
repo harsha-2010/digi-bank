@@ -1,0 +1,92 @@
+<!-- login.component.html -->
+<!-- <div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" [(ngModel)]="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" required>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      </form>
+    </div>
+  </div>-->
+
+  <!-- <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username" required>
+      <div *ngIf="loginForm.get('username')?.hasError('required')" class="error-message">
+          Username is required !!
+      </div>
+    
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" required>
+      <div *ngIf="loginForm.get('password')?.hasError('required')" class="error-message">
+          Password is required !!
+      </div>
+      <div *ngIf="loginForm.get('password')?.hasError('minLength')" class="error-message">
+        Password must contain atleast 4 characters !!
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+      </div>
+      
+      <button type="submit">Login</button>
+  </form>
+   -->
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <body>
+     <section class="login">
+       <div class="login_box">
+         <div class="left">
+          <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div>
+           <div class="contact">
+             <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <h3>LOGIN</h3>
+                  <input type="text" id="username" formControlName="username" placeholder="USERNAME" (keyup)="clearErrorMessage('username')" required>
+                  <span *ngIf="loginForm.get('username')?.hasError('required')" class="error-message">
+                    Username is required !!
+                  </span>
+                         
+                  <input type="password" id="password" formControlName="password" placeholder="PASSWORD" (keyup)="clearErrorMessage('username')" required>
+                  <span *ngIf="loginForm.get('password')?.hasError('required')" class="error-message">
+                    Password is required !!
+                  </span>
+                  <span *ngIf="loginForm.get('password')?.hasError('minLength')" class="error-message">
+                    Password must contain atleast 4 characters !!
+                  </span>
+                  <br>
+
+                  <div *ngIf="errorMessage" class="invalid-message">
+                    {{ errorMessage }}
+                  </div>
+   
+                  <button class="submit">LOGIN</button>
+                  <!-- Add the Register button/link -->
+                  <div class="register-link">
+                    <p>Don't have an account? <a routerLink="/signup">Register</a></p>
+                  </div>
+                           
+              </form>
+           </div>
+         </div>
+         <div class="right">
+           <div class="right-text">
+             <h2>DIGI BANK</h2>
+             <h4>Your User-Friendly Banking Interface</h4>
+           </div>
+         </div>
+       </div>
+     </section>
+   </body>
+   
