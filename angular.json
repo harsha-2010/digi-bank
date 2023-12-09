@@ -67,6 +67,7 @@
               "sourceMap": true
             }
           },
+          "browserTarget": "prototype:build",
           "defaultConfiguration": "production"
         },
         "serve": {
@@ -79,6 +80,7 @@
               "buildTarget": "prototype:build:development"
             }
           },
+          "browserTarget": "prototype:build",
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
