@@ -1,41 +1,58 @@
+
+<title>Signup</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <body>
-	<section class="signup">
+	<section class="signUp">
+		<div id="particles"></div>
+		<div class="content-overlay">
 		<div class="signup_box">
 			<div class="left">
                 <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div>
 				<div class="contact">
 					<form [formGroup]="signupForm" (ngSubmit)="signup()">
                         <h3>SIGN UP</h3>
-						<input type="text" id="name" formControlName="name" placeholder="NAME" required>
-
-                        <input type="text" id="username" formControlName="username" placeholder="USERNAME" required>
-                        <span *ngIf="signupForm.get('username')?.hasError('required')" class="error-message">
+						<label for="name">NAME<span class="required">*</span></label>
+						<input type="text" id="name" formControlName="name" required>
+						<div *ngIf="submitted && signupForm.get('name')?.hasError('required')" class="error-message">
+                            Name is required !!
+						</div>
+						<label for="username">USERNAME<span class="required">*</span></label>
+                        <input type="text" id="username" formControlName="username" required>
+                        <div *ngIf="submitted && signupForm.get('username')?.hasError('required')" class="error-message">
                             Username is required !!
-                        </span>
-                      
-                        <input type="password" id="password" formControlName="password" placeholder="PASSWORD" required>
-                        <span *ngIf="signupForm.get('password')?.hasError('required')" class="error-message">
+						</div>
+						<label for="password">PASSWORD<span class="required">*</span></label>
+                        <input type="password" id="password" formControlName="password" required>
+                        <div *ngIf="submitted && signupForm.get('password')?.hasError('required')" class="error-message">
                             Password is required !!
-                        </span>
-                        <span *ngIf="signupForm.get('password')?.hasError('minLength')" class="error-message">
+						</div>
+                        <div *ngIf="submitted && signupForm.get('password')?.hasError('minLength')" class="error-message">
                           Password must contain atleast 4 characters !!
-                        </span>
-
-						<input type="email" id="email" formControlName="email" placeholder="E-MAIL" required>
-                        <span *ngIf="signupForm.get('email')?.hasError('required')" class="error-message">
+						</div>
+						<label for="email">E-MAIL<span class="required">*</span></label>
+						<input type="email" id="email" formControlName="email" required>
+                        <div *ngIf="submitted && signupForm.get('email')?.hasError('required')" class="error-message">
                         	Email is required !!
-                        </span>
-
-						<input type="number" id="mobile" formControlName="mobile" placeholder="MOBILE" required>
-                        <span *ngIf="signupForm.get('mobile')?.hasError('minLength')" class="error-message">
+						</div>
+						<label for="mobile">MOBILE<span class="required">*</span></label>
+						<input type="number" id="mobile" formControlName="mobile" required>
+						<div *ngIf="submitted && signupForm.get('mobile')?.hasError('required')" class="error-message">
+                        	Mobile Number is required !!
+						</div>
+                        <div *ngIf="submitted && signupForm.get('mobile')?.hasError('minLength')" class="error-message">
                             Mobile Number should contain atleast 10 digits !!
-                        </span>
-
-						<input type="text" id="city" formControlName="city" placeholder="CITY" required>
-
-						<input type="number" id="zip" formControlName="zip" placeholder="PINCODE" required>
-                        
+						</div>
+						<label for="city">CITY<span class="required">*</span></label>
+						<input type="text" id="city" formControlName="city" required>
+						<div *ngIf="submitted && signupForm.get('city')?.hasError('required')" class="error-message">
+                        	City Name is required !!
+						</div>
+						<label for="zip">PINCODE<span class="required">*</span></label>
+						<input type="number" id="zip" formControlName="zip" required>
+                        <div *ngIf="submitted && signupForm.get('city')?.hasError('required')" class="error-message">
+                        	Pincode is required !!
+						</div>
+						
 						<div *ngIf="submitted && signupForm.invalid" class="invalid-message">
 							Please fill all the required fields !!
 						</div>
@@ -51,6 +68,7 @@
 					<h4>Your User-Friendly Banking Interface</h4>
 				</div>
 			</div>
+		</div>
 		</div>
 	</section>
 </body>

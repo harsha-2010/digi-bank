@@ -8,20 +8,20 @@ import { AccountFormComponent } from './account-form/account-form.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard, HomeGuard } from './auth.guard';
 
 const routes: Routes = [
-  // Define your routes here, for example:
+  // Define your routes here
+  
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'account-form', component: AccountFormComponent },
   { path: 'account-summary', component: AccountSummaryComponent },
   { path: 'account-details', component: AccountDetailsComponent },
-  { path: 'transfer', component: TransferComponent},
+  { path: 'transfer', component: TransferComponent },
   { path: 'logout', component: LogoutComponent},
-  { path: 'home', component: HomeComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-
-  // Add more routes as needed
 ];
 
 @NgModule({

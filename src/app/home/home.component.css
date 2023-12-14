@@ -1,58 +1,104 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    margin-left: 20px;
-    padding: 0;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 40px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    font-size: 18px;
-  }
-  
-  .welcome-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .content-overlay {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    padding: 30px;
-  }
-  
-  footer {
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 1%;
-  }
 
-  #particles {
-    background-color: black;
-    height: 100vh;
+body {
+  margin: 0;
+  /* display: flex; */
+  font-family: 'Times New Roman', Times, serif;
 }
-  
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  margin-left: 20px;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 40px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+  /* Add a hover effect for better visibility */
+  nav ul li a:hover {
+    color: #b0b0b0; /* Adjust the hover color as needed */
+} 
+
+.welcome-container {
+  position: relative;
+  height: 100vh;
+}
+
+#particles {
+  background-color: black;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  z-index: 2; /* Ensure the content is above the particles.js background */
+}
+
+footer {
+  background-color: rgb(40, 40, 40);
+  color: #fff;
+  text-align: center;
+  padding: 1%;
+}
+
+button {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 8px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  background: rgb(200, 45, 45);
+  color: #fff;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+  -moz-box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+  box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.logo {
+  position: absolute;
+  height: auto;
+  width: 30px;
+  margin-left: -20px;
+  margin-top: -5px;
+}
+
+.greeting {
+  color: #00b0a0;
+  /* margin-right: -50px; */
+  margin-left: 400px;
+  /* color:  rgb(215, 0, 0); */
+}

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LogoutComponent } from './logout.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AccountService } from '../services/account.service';
 
 describe('LogoutComponent', () => {
   let component: LogoutComponent;
@@ -8,7 +10,9 @@ describe('LogoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LogoutComponent]
+      imports: [HttpClientTestingModule],
+      declarations: [LogoutComponent],
+      providers: [AccountService],
     })
     .compileComponents();
     
@@ -17,7 +21,8 @@ describe('LogoutComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
+    const component: LogoutComponent = TestBed.get(LogoutComponent);
     expect(component).toBeTruthy();
-  });
+   });
 });

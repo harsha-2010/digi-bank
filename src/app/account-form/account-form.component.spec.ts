@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountFormComponent } from './account-form.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AccountService } from '../services/account.service';
 
 describe('AccountFormComponent', () => {
   let component: AccountFormComponent;
@@ -8,7 +10,9 @@ describe('AccountFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AccountFormComponent]
+      imports: [HttpClientTestingModule],
+      declarations: [AccountFormComponent],
+      providers: [AccountService],
     })
     .compileComponents();
     
@@ -17,7 +21,9 @@ describe('AccountFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
+    const component: AccountFormComponent = TestBed.get(AccountFormComponent);
     expect(component).toBeTruthy();
-  });
+   });
 });
+

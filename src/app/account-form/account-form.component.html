@@ -50,37 +50,67 @@
 <br>
 </body> -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Form</title>
+  <link rel="stylesheet" href="account-form.component.css">
+</head>
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/"><img src="assets/Digital Bank - Branding2.jpg" alt="DIGI BANK" class="logo" /></a></li>
+        <li><a routerLink="/account-summary">Account Summary</a></li>
+        <li><a routerLink="/account-details">Account Details</a></li>
+        <li><a routerLink="/transfer">Transfer</a></li>
+        <li *ngIf="loggedIn" style="font-style: italic;" class="greeting">Namaste, {{loggedInUserName}}</li>
+        <li style="margin-left: auto;"><a routerLink="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
 <body>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<section class="create-account">
+    <div id="particles"></div>
+    <div class="content-overlay">
 			<div class="account-form">
         	<form [formGroup]="accountForm" (ngSubmit)="submitForm()">
             <h3>CREATE NEW ACCOUNT</h3>
-            <input type="text" id="accountHolderName" formControlName="accountHolderName" placeholder="ACCOUNT HOLDER NAME" required>
-            <div *ngIf="accountForm.get('accountHolderName')?.hasError('required')" class="error-message">
+            <label for="accountHolderName">ACCOUNT HOLDER NAME<span class="required">*</span></label>
+            <input type="text" id="accountHolderName" formControlName="accountHolderName" required>
+            <div *ngIf="submitted && accountForm.get('accountHolderName')?.hasError('required')" class="error-message">
               Account Holder Name is required !!
             </div>
             
-            <label for="accountType">ACCOUNT TYPE</label>
+            <label for="accountType">ACCOUNT TYPE<span class="required">*</span></label>
               <select id="accountType" formControlName="accountType">
                 <option value="Savings">Savings</option>
                 <option value="Current">Current</option>
                 <option value="Fixed Deposit">Fixed Deposit</option>
               </select>
-            <input type="email" id="email" formControlName="email" placeholder="E-MAIL" required>
-            <div *ngIf="accountForm.get('email')?.hasError('required')" class="error-message">
+            
+            <label for="email">E-MAIL<span class="required">*</span></label>
+            <input type="email" id="email" formControlName="email" required>
+            <div *ngIf="submitted && accountForm.get('email')?.hasError('required')" class="error-message">
               E-mail is required !!
             </div>
-            <input type="text" id="mobile" formControlName="mobile" placeholder="MOBILE" required>
-            <div *ngIf="accountForm.get('mobile')?.hasError('required')" class="error-message">
+
+            <label for="mobile">MOBILE<span class="required">*</span></label>
+            <input type="text" id="mobile" formControlName="mobile" required>
+            <div *ngIf="submitted && accountForm.get('mobile')?.hasError('required')" class="error-message">
               Mobile Number is required !!
             </div>
-            <input type="text" id="city" formControlName="city" placeholder="CITY" required>
-            <div *ngIf="accountForm.get('city')?.hasError('required')" class="error-message">
+            <label for="city">CITY<span class="required">*</span></label>
+            <input type="text" id="city" formControlName="city" required>
+            <div *ngIf="submitted && accountForm.get('city')?.hasError('required')" class="error-message">
               City Name is required !!
             </div>
-            <input type="number" id="zip" formControlName="zip" placeholder="PINCODE" required>
-            <div *ngIf="accountForm.get('zip')?.hasError('required')" class="error-message">
+            <label for="zip">PINCODE<span class="required">*</span></label>
+            <input type="number" id="zip" formControlName="zip" required>
+            <div *ngIf="submitted && accountForm.get('zip')?.hasError('required')" class="error-message">
               Pincode is required !!
             </div>
             <div *ngIf="submitted && accountForm.invalid" class="invalid-message">
@@ -90,5 +120,10 @@
             <br>
           </form>
 				</div>
+    </div>
 	</section>
+  <footer>
+    <p>&copy; 2023 Digi Bank. All rights reserved.</p>
+  </footer>
 </body>
+</html>

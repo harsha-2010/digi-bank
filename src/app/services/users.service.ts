@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Users } from '../models/users';
 import { CookieService } from 'ngx-cookie-service';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UsersService {
   private readonly cookieKey = 'my_auth_cookie';
   private loggedInUser: Users | undefined;
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {
+  constructor(private http: HttpClient, private cookieService: CookieService, private accountService: AccountService) {
     const storedUser = this.cookieService.get(this.cookieKey);
     if (storedUser) {
       this.loggedInUser = JSON.parse(storedUser);
@@ -64,6 +65,7 @@ export class UsersService {
   logout(): void {
     this.loggedInUser = undefined;
     this.cookieService.delete(this.cookieKey);
+    this.accountService.logout();
   }
 
   // Function to generate a unique ID

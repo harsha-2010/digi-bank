@@ -1,5 +1,5 @@
 // account-form.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../services/account.service';
 import { Router } from '@angular/router';
@@ -7,12 +7,14 @@ import { Users } from '../models/users';
 import { UsersService } from '../services/users.service';
 import { Account } from '../models/account';
 
+declare const particlesJS: any;
+
 @Component({
   selector: 'app-account-form',
   templateUrl: './account-form.component.html',
   styleUrls: ['./account-form.component.css']
 })
-export class AccountFormComponent {
+export class AccountFormComponent implements OnInit {
   accountForm: FormGroup;
   user: Users | undefined;
   username!: string;
@@ -21,6 +23,9 @@ export class AccountFormComponent {
   loggedInUser!: Users;
   errorMessage!: string;
   submitted = false;
+  loggedIn: boolean = false;
+  LoggedInUser!: Users | undefined;
+  loggedInUserName!: string | undefined;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,7 +44,20 @@ export class AccountFormComponent {
     
   }
 
-  
+  ngOnInit(): void{ 
+    particlesJS.load('particles', 'assets/particles.json', () => {
+      console.log("particles.js config loaded");
+    });
+    if(this.usersService.getLoggedInUser()) {
+      this.loggedIn = true;
+      this.LoggedInUser = this.usersService.getLoggedInUser();
+      this.loggedInUserName = this.LoggedInUser?.name;
+    }
+    else {
+      this.loggedIn = false;
+    }
+  }
+
   submitForm(): void {
     try {
 

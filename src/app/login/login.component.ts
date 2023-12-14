@@ -5,19 +5,26 @@ import { debounceTime } from 'rxjs/operators';
 import { UsersService } from '../services/users.service';
 import { Users } from '../models/users';
 
+declare const particlesJS: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   public loginForm!: FormGroup;
   errorMessage!: string;
   userLogin!: Users;
+  submitted: boolean = false;
 
   constructor(private formbuilder: FormBuilder, private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
+    particlesJS.load('particles', 'assets/particles.json', () => {
+      console.log("particles.js config loaded");
+    });
     this.initLoginForm();
   }
 
@@ -35,21 +42,32 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  async login(): Promise<void> {
+  async login(): Promise<boolean> {
     this.userLogin = this.loginForm.value;
-
+    this.submitted = true;
     (await this.usersService.getUser(this.userLogin.username, this.userLogin.password))
       .subscribe((user: any) => {
         if (user) {
           this.usersService.setLoggedInUser(user);
           console.log(this.usersService.getLoggedInUser());
-          alert('Login Successful');
+          const isUserLoggedIn: boolean = true;
+          //alert('Login Successful');
           this.loginForm.reset();
-          this.router.navigate(['./account-summary']);
+          this.router.navigate(['/home']);
+          return isUserLoggedIn;
         } else {
-          this.errorMessage = 'Invalid username or password';
+          if(this.loginForm.value.username && this.loginForm.value.password){
+            this.errorMessage = 'Invalid username or password';
+            const isUserLoggedIn: boolean = false;
+            return isUserLoggedIn;
+          }
+          else{
+            const isUserLoggedIn: boolean = false
+            return isUserLoggedIn;
+          }
         }
       });
+      return false;
   }
   clearErrorMessage(fieldName: string): void {
     // Assuming you have corresponding error messages like 'usernameError', 'passwordError', etc.

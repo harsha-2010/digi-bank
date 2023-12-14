@@ -1,18 +1,24 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .fundsTransfer {
-    height: 800px;
+    margin: auto;
+    display: block;
+    height: 950px;
     width: 100%;
-    background: radial-gradient(#653d84, #332042);
+    /* background: radial-gradient(#653d84, #332042); */
     position: relative;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .transfer {
     position: relative;
-    width: 40%;
-    top: 47%;
+    margin-top: 0px;
+    width: 180%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #fff;
+    background: #ffffff;
     border-radius: 10px;
     box-shadow: 1px 4px 22px -8px #0004;
     display: flex;
@@ -25,6 +31,7 @@
     text-align: center;
     margin-bottom: 30px;
     margin-top: 10px;
+    color: black;
 }
 
 .transfer input {
@@ -33,13 +40,28 @@
     width: 150%; /* Adjust the width as needed */
     margin: 20px; /* Center the input fields */
     margin-left: -50px;
-    border-bottom: 1px solid #452a5a7d;
+    border-bottom: 1px solid black;
     padding: 7px 9px;
     overflow: hidden;
     background: transparent;
     font-weight: 600;
-    font-size: 14px;
-    box-sizing: border-box;
+    font-size: medium;
+    margin-top: -25px;
+}
+
+.transfer label {
+  display: flex;
+  border: none;
+  width: 130%; /* Adjust the width as needed */
+  margin: 20px auto; /* Center the input fields */
+  margin-left: -50px;
+  padding: 7px 5px;
+  overflow: hidden;
+  background: transparent;
+  font-weight: 600;
+  font-size: medium;
+  box-sizing: border-box;
+  color: black;
 }
 
 
@@ -49,31 +71,76 @@ button {
     border: none;
     padding: 15px 50px;
     border-radius: 8px;
-    margin-top: 40px;
-    background: #583672;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    background: rgb(50, 50, 50);
     color: #fff;
     font-weight: bold;
-    -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-    -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-    box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+    font-size: large;
+    -webkit-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+    -moz-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+    box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
 }
+
+.navigation {
+  position: absolute;
+  margin-top: 10px;
+  width: 180%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.navigation button {
+  display: block;
+  margin: 0 30px;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  background: rgb(50, 50, 50);
+  color: #fff;
+  font-weight: bold;
+  font-size: medium;
+  -webkit-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+  -moz-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+  box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+}
+
+button:hover {
+  background: #404040; /* Adjust the hover color as needed */
+}
+
 
 .error-message {
     color: red;
     padding-left: 5px;
     margin-left: -50px;
+    margin-top: -10px;
+    font-size: medium;
 }
 
 .transfer .invalid-message {
     color: red;
     margin-left: 20px;
     margin-top: 20px;
+    font-size: medium;
+}
+
+.insufficient-funds-transfer {
+  color: red;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: medium;
 }
   
-header {
+  header {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
   }
   
   nav ul {
@@ -92,16 +159,66 @@ header {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 17px;
+    font-size: large;
   }
+
+    /* Add a hover effect for better visibility */
+  nav ul li a:hover {
+      color: #b0b0b0; /* Adjust the hover color as needed */
+  } 
   
   footer {
     background-color: #333;
     color: #fff;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
-    /*position: fixed;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
     bottom: 0;
-    width: 100%; */
+    width: 100%;
   }
 
+  #particles {
+    background-color: black;
+    height: 950px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .content-overlay {
+    position: absolute;
+    top: 50%; /* Adjust this value as needed */
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    /* text-align: center; */
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    z-index: 2; /* Ensure the content is above the particles.js background */
+  }
+
+  .required {
+    margin-top: -5px;
+    padding-left: 3px;
+    color: red;
+    font-size: large;
+  }
+
+  .logo {
+    position: absolute;
+    height: auto;
+    width: 30px;
+    margin-left: -20px;
+    /* margin-top: -5px; */
+  }
+  
+  .greeting {
+    color: #00b0a0;
+    /* margin-right: -50px; */
+    margin-left: 400px;
+    /* color:  rgb(215, 0, 0); */
+  }

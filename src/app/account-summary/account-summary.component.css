@@ -1,10 +1,27 @@
 /* account-summary.component.css */
+
+html{
+  width: 100%;
+  position: relative;
+}
+
+.summary {
+  margin: auto;
+  display: block;
+  height: 250px;
+  width: 100%;
+  /* background: radial-gradient(#653d84, #332042); */
+  position: relative;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .account-summary {
-    height: fit-content;
-    max-width: 800px;
-    margin: 0 auto;
+    margin: auto;
+    display: block;
+    width: 800px;
     font-family: 'Times New Roman', Times, serif;
     margin-bottom: 30px;
+    color: black;
   }
   
   .account-item {
@@ -15,6 +32,7 @@
     margin-bottom: 20px;
     padding: 10px;
     padding-bottom: 20px;
+    color: black;
   }
 
   .savings-account {
@@ -40,14 +58,14 @@
     margin-top: 50px;
   }
 
-  button {
+  /* button {
     border: none;
-    padding: 15px 20px; /* Adjust the padding as needed */
+    padding: 15px 20px;
     border-radius: 8px;
     display: block;
     position: absolute;
-    top: 85px; /* Adjust the distance from the top */
-    right: 250px; /* Adjust the distance from the right */
+    top: 85px;
+    right: 250px;
     background: #583672;
     color: #fff;
     font-weight: bold;
@@ -56,10 +74,10 @@
     box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
     font-family: 'Times New Roman', Times, serif;
     font-size: medium;
-  }
+  } */
 
   .max-account-limit-error {
-    color: red;
+    color: white;
     display: block;
     position: absolute;
     top: 60px; /* Adjust the distance from the top */
@@ -68,6 +86,9 @@
     font-size: medium;
   }
   
+  .account-holder-name {
+    font-size: 16px;
+  }
   
   .account-info {
     flex: 1;
@@ -76,6 +97,11 @@
   .account-number {
     font-size: 16px;
     font-weight: bold;
+  }
+
+  .account-number a {
+    display: inline;
+    margin-left: -120px;
   }
   
   .account-type {
@@ -108,40 +134,117 @@
     font-size: large;
   }
     
+  body {
+    margin: 0;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+  }
+  
   header {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: -25px;
+  }
+
+  nav {
+    margin-left: -25px;
   }
   
   nav ul {
     list-style: none;
     margin: 0;
-    margin-left: 20px;
     padding: 0;
     display: flex;
   }
   
-  nav ul li {
-    margin-right: 40px;
-  }
-  
-  nav ul li a {
+  nav a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
+    margin-left: -50px;
+    text-align: center;
   }
+  
+  /* Add a hover effect for better visibility */
+  nav a:hover {
+    color: #b0b0b0 /* Adjust the hover color as needed */
+  }  
   
   footer {
     background-color: #333;
     color: #fff;
     padding: 5px;
     text-align: center;
-    /*position: fixed;
-    bottom: 0;
-    width: 100%; */
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    font-size: 15px;
+    margin-top: 1850px;
   }
+  
+  #particles {
+    background-color: black;
+    height: 2100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .content-overlay {
+    position: absolute;
+    top: 400%; /* Adjust this value as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    z-index: 2; /* Ensure the content is above the particles.js background */
+}
 
-  
-  
+button {
+    border: none;
+    padding: 15px 20px; /* Adjust the padding as needed */
+    border-radius: 8px;
+    display: block;
+    position: absolute;
+    top: 10px; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the right */
+    background: rgb(200, 45, 45);
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+    -moz-box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+    box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+.account-summary h2, h3 {
+  color: white;
+}
+
+.currency-symbol {
+  font-weight: bold;
+}
+
+.logo {
+  position: absolute;
+  height: auto;
+  width: 30px;
+  margin-left: -20px;
+  margin-top: -5px;
+}
+
+.greeting {
+  color: #00b0a0;
+  /* margin-right: -50px; */
+  margin-left: 300px;
+  /* color:  rgb(215, 0, 0); */
+}

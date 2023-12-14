@@ -1,226 +1,307 @@
 /* account-summary.component.css */
 .account-details-list {
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  .account-item {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-  }
-  
-  .account-details {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
-  .account-icon {
-    width: 100px;
-    height: 120px;
-    border-radius: 20%;
-    margin-right: 20px;
-  }
-  
-  .account-info {
-    flex: 1;
-  }
-  
-  .account-number {
-    font-size: 16px;
-  }
-  
-  .account-holder-name {
-    font-size: 16px;
-  }
-  
-  .account-type {
-    font-size: 16px;
-  }
-  
-  .available-balance {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-    cursor: pointer;
-    display: block;
-    margin-top: 10px;
-    padding-left: 120px;
-  }
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+}
 
-  /* account-details.component.css */
-  .transaction-list {
-    height: 500px;
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: 'Times New Roman', Times, serif;
-    border-collapse: collapse;
-  }
-  
-  .transaction-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;    
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 10px;
-  }
-  
-  .transaction-table th {
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: medium;
-    font-weight: bold;
-  }
+.account-item {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
 
-  .transaction-table td {
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: medium;
-  }
-  
-  .odd-row {
-    background-color: #f9f9f9; /* Grey shading for odd rows */
-  }
-  
-  .even-row {
-    background-color: #fff; /* White shading for even rows */
-  }
+.account-details {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  color: black;
+}
 
-  .filter {
-    border-radius: 20px;
-    max-width: 250px;
-    margin: 0 auto;
-    display: flex;
-    padding-left: 600px;
-    margin-top: -50px;
-  }
+.account-icon {
+  width: 100px;
+  height: 120px;
+  border-radius: 20%;
+  margin-right: 20px;
+}
 
-  .search {
-    border-radius: 20px;
-    max-width: 250px;
-    margin: 0 auto;
-    display: flex;
-    padding-left: -150px;
-    margin-top: -75px;
-  }
+.account-info {
+  flex: none;
+}
 
-  /* Add this class for highlighting background when searchText is present */
-  .highlight-background {
-    background-color: yellow;
+.account-number {
+  font-size: 16px;
+}
+
+.account-holder-name {
+  font-size: 16px;
+}
+
+.account-type {
+  font-size: 16px;
+}
+
+.available-balance {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  padding-left: 120px;
+}
+
+.transaction-list {
+  margin-top: 10px;
+  height: calc(100vh - 100px); /* Adjust the height to leave space for the footer */
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+  border-collapse: collapse;
+  position: relative;
+  z-index: 1; /* Ensure the transaction list is above the particles.js background */
+  overflow-y: auto; /* Add this line to enable vertical scrolling when the content exceeds the height */
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;    
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 10px;
+}
+
+.transaction-table th {
+  position: sticky;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.transaction-table td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 12px;
+  text-align: left;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+}
+
+.odd-row {
+  background-color: #d1d1d1; /* Grey shading for odd rows */
+}
+
+.even-row {
+  background-color: #fff; /* White shading for even rows */
+}
+
+.transaction-header .filter {
+  border-radius: 20px;
+  max-width: 100%;
+  display: block;
+  padding-left: 680px;
+  border: 1px solid black;
+  margin-top: -50px;
+  padding-top: -50px;
+  padding-bottom: -50px;
+}
+
+.filter {
+  border-radius: 20px;
+  max-width: 250px;
+  margin: 0 auto;
+  display: flex;
+  padding-left: -150px;
+  margin-top: -75px;
+}
+
+/* Add this class for highlighting background when searchText is present */
+.highlight-background {
+  background-color: yellow;
 }
 
 
-  .transaction-header {
-    max-width: 900px;
-    padding-left: 10px;
-    margin: 0 auto;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: -30px;
-  }
+.transaction-header {
+  max-width: 100%;
+  padding-left: 10px;
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: -30px;
+}
 
-  .transaction-table {
-    border-collapse: collapse;
-    border-spacing: 0 8px; /* Adjust the spacing between rows if needed */
-  }
-  
-  td.mat-cell,
-  th.mat-header-cell {
-    border: 1px solid #ddd; /* Add borders to cells */
-    border-radius: 8px; /* Add border-radius to round the corners */
-    overflow: hidden; /* Ensure rounded corners clip properly */
-  }
-  
-  th.mat-header-cell {
-    background-color: #f5f5f5; /* Header background color */
-  }
+.transaction-table {
+  border-collapse: collapse;
+  border-spacing: 0 8px; /* Adjust the spacing between rows if needed */
+}
 
-  button {
-    border: none;
-    padding: 15px 20px; /* Adjust the padding as needed */
-    border-radius: 8px;
-    display: block;
-    position: absolute;
-    top: 75px; /* Adjust the distance from the top */
-    right: 270px; /* Adjust the distance from the right */
-    background: #583672;
-    color: #fff;
-    font-weight: bold;
-    -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-    -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-    box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: medium;
-  }
+td.mat-cell,
+th.mat-header-cell {
+  border: 1px solid #ddd; /* Add borders to cells */
+  border-radius: 8px; /* Add border-radius to round the corners */
+  overflow: hidden; /* Ensure rounded corners clip properly */
+}
 
-  .insufficient-funds-error {
-    color: red;
-    display: block;
-    position: absolute;
-    top: 85px; /* Adjust the distance from the top */
-    right: 450px; /* Adjust the distance from the right */
-    font-weight: bold;
-    font-size: medium;
-  }
+th.mat-header-cell {
+  position:sticky;
+  z-index: 2;
+}
 
-    
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    margin-left: 20px;
-    padding: 0;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 40px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    font-size: 17px;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    text-align: center;
-    /*position: fixed;
-    bottom: 0;
-    width: 100%; */
-  }
+mat-paginator {
+  font-size: large;
+}
 
-  
-  
+.insufficient-funds-error {
+  color: red;
+  display: block;
+  position: absolute;
+  top: 25px; /* Adjust the distance from the top */
+  right: 200px; /* Adjust the distance from the right */
+  font-weight: bold;
+  font-size: medium;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0 auto;
+  margin-left: -75px;
+  margin-right: 10px;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+  /* Add a hover effect for better visibility */
+  nav ul li a:hover {
+    color: #b0b0b0; /* Adjust the hover color as needed */
+} 
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  font-size: 15px;
+  margin-top: 180vh;
+}
+
+#particles {
+  background-color: black;
+  height: 100vh; /* Use viewport height to cover the entire screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; 
+}
+
+.content-overlay {
+  position: absolute; /* Change from absolute to relative */
+  z-index: 1;
+  top: 100%; /* Adjust this value as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+}
+
+button {
+  border: none;
+  padding: 15px 20px; /* Adjust the padding as needed */
+  border-radius: 8px;
+  display: block;
+  position: absolute;
+  top: 10px; /* Adjust the distance from the top */
+  right: 10px; /* Adjust the distance from the right */
+  background: rgb(200, 45, 45);
+  color: #fff;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+  -moz-box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+  box-shadow: 0px 9px 15px -11px rgb(114, 54, 54);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+}
+
+.account-details h3 {
+  color: white;
+  margin-left: 10px;
+}
+
+.transaction-header h3 {
+  color: white;
+  margin-left: 0px;
+}
+
+.logo {
+  position: absolute;
+  height: auto;
+  width: 30px;
+  margin-left: -20px;
+  margin-top: -5px;
+}
+
+.greeting {
+  color: #00b0a0;
+  /* margin-right: -50px; */
+  margin-left: 300px;
+  /* color:  rgb(215, 0, 0); */
+}

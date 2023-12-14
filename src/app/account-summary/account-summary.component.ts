@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
 import { Users } from '../models/users';
 import { UsersService } from '../services/users.service';
+import { CurrencyConfigurationService } from '../services/currency-configuration.service';
+
+declare const particlesJS: any;
 
 @Component({
   selector: 'app-account-summary',
@@ -20,10 +23,25 @@ export class AccountSummaryComponent implements OnInit {
   username!: string | undefined;
   password!: string | undefined;
   msg!: string;
+  loggedIn: boolean = false;
+  loggedInUser!: Users | undefined;
+  loggedInUserName!: string | undefined;
+  currencySymbol: string = this.currencyService.currencysymbol;
 
-  constructor(private accountService: AccountService, private router: Router, private usersService: UsersService) {}
+  constructor(private accountService: AccountService, private router: Router, private usersService: UsersService, private currencyService: CurrencyConfigurationService) {}
 
   ngOnInit(): void {
+    particlesJS.load('particles', 'assets/particles.json', () => {
+      console.log("particles.js config loaded");
+    });
+    if(this.usersService.getLoggedInUser()) {
+      this.loggedIn = true;
+      this.loggedInUser = this.usersService.getLoggedInUser();
+      this.loggedInUserName = this.loggedInUser?.name;
+    }
+    else {
+      this.loggedIn = false;
+    }
     this.loadUser();
   }
 

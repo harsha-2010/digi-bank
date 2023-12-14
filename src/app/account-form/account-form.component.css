@@ -1,46 +1,98 @@
-.create-account {
-  height: 800px;
-  width: 100%;
-  background: radial-gradient(#653d84, #332042);
-  position: absolute;
+body {
+  margin: 0;
   font-family: 'Times New Roman', Times, serif;
 }
 
-.account-form {
-  position: absolute;
-  width: 40%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 1px 4px 22px -8px #0004;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+header {
+  background-color: #333;
+  color: #fff;
   padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  margin-left: 20px;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 40px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+  /* Add a hover effect for better visibility */
+  nav ul li a:hover {
+    color: #b0b0b0; /* Adjust the hover color as needed */
+} 
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 15px;
+}
+
+.create-account {
+    margin: auto;
+    display: block;
+    height: 1000px;
+    width: 100%;
+    /* background: radial-gradient(#653d84, #332042); */
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.account-form {
+    position: relative;
+    margin-top: 0px;
+    width: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .account-form h3 {
-  text-align: center;
-  margin-bottom: 30px;
-  margin-top: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: black;
 }
 
 .account-form input {
-  display: flex;
-  border: none;
-  width: 130%; /* Adjust the width as needed */
-  margin: 20px auto; /* Center the input fields */
-  margin-left: -50px;
-  border-bottom: 1px solid #452a5a7d;
-  padding: 7px 9px;
-  overflow: hidden;
-  background: transparent;
-  font-weight: 600;
-  font-size: 14px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
+    display: flex;
+    border: none;
+    width: 130%; /* Adjust the width as needed */
+    margin: 20px; /* Center the input fields */
+    margin-left: -50px;
+    border-bottom: 1px solid black;
+    padding: 7px 9px;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: -25px;
 }
 
 .account-form label {
@@ -49,12 +101,13 @@
   width: 130%; /* Adjust the width as needed */
   margin: 20px auto; /* Center the input fields */
   margin-left: -50px;
-  padding: 7px 9px;
+  padding: 7px 5px;
   overflow: hidden;
   background: transparent;
   font-weight: 600;
-  font-size: 14px;
+  font-size: medium;
   box-sizing: border-box;
+  color: black;
 }
 
 .account-form select {
@@ -63,29 +116,30 @@
   width: 130%; /* Adjust the width as needed */
   margin: -10px auto; /* Center the input fields */
   margin-left: -50px;
-  border-bottom: 1px solid #452a5a7d;
+  border-bottom: 1px solid black;
   padding: 7px 9px;
   overflow: hidden;
   background: transparent;
   font-weight: 600;
-  font-size: 14px;
+  font-size: medium;
   box-sizing: border-box;
   margin-bottom: 25px;
 }
 
 .submit {
-  display: flex;
-  margin: auto;
-  border: none;
-  padding: 15px 70px;
-  border-radius: 8px;
-  margin-top: 30px;
-  background: #583672;
-  color: #fff;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-  -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
-  box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+    display: block;
+    margin: auto;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: -10px;
+    background: rgb(50, 50, 50);
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+    -moz-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+    box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
 }
 
 .error-message {
@@ -93,10 +147,56 @@
   padding-left: 5px;
   margin-left: -50px;
   margin-top: -10px;
+  font-size: medium;
 }
 
 .invalid-message {
   color: red;
   margin-left: 40px;
   margin-top: 15px;
+  font-size: medium;
+}
+
+#particles {
+  background-color: black;
+  height: 100vh; /* Use viewport height to cover the entire screen */
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; 
+}
+
+.content-overlay {
+  position: absolute; /* Change from absolute to relative */
+  z-index: 1;
+  top: 100%; /* Adjust this value as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+}
+
+
+.required {
+  margin-top: -5px;
+  padding-left: 3px;
+  color: red;
+  font-size: large;
+}
+
+.logo {
+  position: absolute;
+  height: auto;
+  width: 30px;
+  margin-left: -20px;
+  margin-top: -5px;
+}
+
+.greeting {
+  color: #00b0a0;
+  /* margin-right: -50px; */
+  margin-left: 400px;
+  /* color:  rgb(215, 0, 0); */
 }

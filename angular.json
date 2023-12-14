@@ -67,7 +67,6 @@
               "sourceMap": true
             }
           },
-          "browserTarget": "prototype:build",
           "defaultConfiguration": "production"
         },
         "serve": {

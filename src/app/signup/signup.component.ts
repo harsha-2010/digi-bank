@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Users } from '../models/users';
 import { UsersService } from '../services/users.service';
 
+declare const particlesJS: any;
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -21,6 +23,9 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private usersService: UsersService) { }
 
   ngOnInit(): void {
+    particlesJS.load('particles', 'assets/particles.json', () => {
+      console.log("particles.js config loaded");
+    });
     this.initSignupForm();
   }
 
@@ -30,7 +35,7 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(4)]],
       name: [''],
       email: ['', [Validators.required,Validators.email]],
-      mobile: [ , Validators.minLength(10)],
+      mobile: [ null , Validators.minLength(10)],
       city: [''],
       zip: [null]
     });
@@ -48,7 +53,7 @@ export class SignupComponent implements OnInit {
     try {
       await this.usersService.setUser(this.newUser).toPromise();
       console.log('User added successfully');
-      alert('SignUp Successful');
+      //alert('SignUp Successful');
       this.router.navigate(['/login']);
     } catch (error) {
       console.error('Error adding user:', error);

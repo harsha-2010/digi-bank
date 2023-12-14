@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignupComponent } from './signup.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AccountService } from '../services/account.service';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -8,7 +10,9 @@ describe('SignupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SignupComponent]
+      imports: [HttpClientTestingModule],
+      declarations: [SignupComponent],
+      providers: [AccountService],
     })
     .compileComponents();
     
@@ -17,7 +21,8 @@ describe('SignupComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
+    const component: SignupComponent = TestBed.get(SignupComponent);
     expect(component).toBeTruthy();
-  });
+   });
 });

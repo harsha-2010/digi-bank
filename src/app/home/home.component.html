@@ -11,24 +11,62 @@
   <header>
     <nav>
       <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/account-summary">Account Summary</a></li>
-        <li><a routerLink="/account-details">Account Details</a></li>
-        <li><a routerLink="/transfer">Transfer</a></li>
-        <li style="margin-left: auto;"><a routerLink="/logout">Logout</a></li>
+        <li>
+          <a [routerLink]="loggedIn ? '/' : null"
+             [ngClass]="{'disabled-link': !loggedIn}"
+             [attr.aria-disabled]="!loggedIn ? true : null">
+             <img src="assets/Digital Bank - Branding2.jpg" alt="DIGI BANK" class="logo" />
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="loggedIn ? '/account-summary' : null"
+             [ngClass]="{'disabled-link': !loggedIn}"
+             [attr.aria-disabled]="!loggedIn ? true : null">
+            Account Summary
+          </a>
+        </li>
+        
+        <li>
+          <a [routerLink]="loggedIn ? '/account-details' : null"
+             [ngClass]="{'disabled-link': !loggedIn}"
+             [attr.aria-disabled]="!loggedIn ? true : null">
+            Account Details
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="loggedIn ? '/transfer' : null"
+             [ngClass]="{'disabled-link': !loggedIn}"
+             [attr.aria-disabled]="!loggedIn ? true : null">
+            Transfer
+          </a>
+        </li>
+        
+        <li *ngIf="loggedIn" style="font-style: italic;" class="greeting">Namaste, {{loggedInUserName}}</li>
+        <li style="margin-left: auto;">
+          <a [routerLink]="loggedIn ? '/logout' : null"
+             [ngClass]="{'disabled-link': !loggedIn}"
+             [attr.aria-disabled]="!loggedIn ? true : null">
+            Logout
+          </a>
+        </li>        
       </ul>
     </nav>
   </header>
 
   <div class="welcome-container">
-    <div id="particles">
+    <div id="particles"></div>
     <div class="content-overlay">
       <h1>Welcome to Digi Bank</h1>
       <p>Your User-Friendly Banking Interface</p>
       <br><br>
-      <p>Please Login for Interactive Banking Experience</p>
-      <button (click)="redirectToLogin()">Login</button>
-    </div>
+      <div *ngIf="!loggedIn" class="login">
+        <h4>Please Login for an Interactive Banking Experience</h4>
+        <button (click)="redirectToLogin()">LOGIN</button>
+      </div>
+      <div *ngIf="loggedIn" class="welcome">
+        <h4>Dive into an immersive Banking Experience</h4>
+        <button (click)="redirectToAccountSummary()">LET'S GO</button>
+      </div>
     </div>
   </div>
 

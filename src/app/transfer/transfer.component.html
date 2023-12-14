@@ -39,10 +39,11 @@
   <header>
     <nav>
       <ul>
-        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/"><img src="assets/Digital Bank - Branding2.jpg" alt="DIGI BANK" class="logo" /></a></li>
         <li><a routerLink="/account-summary">Account Summary</a></li>
         <li><a routerLink="/account-details">Account Details</a></li>
         <li><a routerLink="/transfer">Transfer</a></li>
+        <li *ngIf="loggedIn" style="font-style: italic;" class="greeting">Namaste, {{loggedInUserName}}</li>
         <li style="margin-left: auto;"><a routerLink="/logout">Logout</a></li>
       </ul>
     </nav>
@@ -50,39 +51,55 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <section class="fundsTransfer">
+    <div id="particles"></div>
+		<div class="content-overlay">
     <div class="transfer">
         <form [formGroup]="transferForm" (ngSubmit)="transferFunds()">
             <h3>FUND TRANSFER</h3>
-            
-            <input type="text" id="sourceAccount" formControlName="sourceAccount" [value]="'Source Account - ' + transferForm.get('sourceAccount')?.value" required>
-            <input type="text" id="payeeName" formControlName="payeeName" placeholder="PAYEE NAME">
-            <div *ngIf="transferForm.get('payeeName')?.hasError('required')" class="error-message">
-                This field is required !!
+            <label for="sourceAccount">SOURCE ACCOUNT<span class="required">*</span></label>
+            <input type="text" id="sourceAccount" formControlName="sourceAccount" [value]="transferForm.get('sourceAccount')?.value" readonly>
+            <label for="payeeName">PAYEE NAME<span class="required">*</span></label>
+            <input type="text" id="payeeName" formControlName="payeeName">
+            <div *ngIf="submitted && transferForm.get('payeeName')?.hasError('required')" class="error-message">
+                Payee Name is required !!
             </div>
-            <input type="text" id="destinationAccount" formControlName="destinationAccount" placeholder="PAYEE ACCOUNT NUMBER">
-            <div *ngIf="transferForm.get('destinationAccount')?.hasError('required')" class="error-message">
-                This field is required !!
+            <label for="destinationAccount">PAYEE ACCOUNT NUMBER<span class="required">*</span></label>
+            <input type="text" id="destinationAccount" formControlName="destinationAccount">
+            <div *ngIf="submitted && transferForm.get('destinationAccount')?.hasError('required')" class="error-message">
+                Payee Account Number is required !!
             </div>
-
-            <input type="text" id="payeeBankName" formControlName="payeeBankName" placeholder="PAYEE BANK NAME">
-
-            <input type="text" id="payeeBankIfscCode" formControlName="payeeBankIfscCode" placeholder="PAYEE BANK'S IFSC CODE">
-
-            <input type="number" id="amount" formControlName="amount" placeholder="AMOUNT">
-            <div *ngIf="transferForm.get('amount')?.hasError('required')" class="error-message">
-                This field is required !!
+            <label for="payeeBankName">PAYEE BANK NAME</label>
+            <input type="text" id="payeeBankName" formControlName="payeeBankName">
+            <label for="payeeBankIfscCode">IFSC CODE<span class="required">*</span></label>
+            <input type="text" id="payeeBankIfscCode" formControlName="payeeBankIfscCode">
+            <div *ngIf="submitted && transferForm.get('payeeBankIfscCode')?.hasError('required')" class="error-message">
+              Payee Bank IFSC Code is required !!
+          </div>
+            <label for="amount">AMOUNT (₹)<span class="required">*</span></label>
+            <input type="number" id="amount" formControlName="amount">
+            <div *ngIf="submitted && transferForm.get('amount')?.hasError('required')" class="error-message">
+                Amount field should not be empty !!
             </div>
-            <div *ngIf="transferForm.get('amount')?.hasError('min') || transferForm.get('amount')?.hasError('max')"
-                    class="error-message">
-                    Please enter an amount between 1 and 1,000,000.
+            <div *ngIf="transferForm.get('amount')?.hasError('min') || transferForm.get('amount')?.hasError('max')" class="error-message">
+                Please enter an amount between 1 and 1,000,000.
             </div>
+            <!-- <div *ngIf="insufficientFundsError && submitted && transferForm.valid" class="invalid-message">
+              {{ insufficientFundsError }}
+            </div> -->
             
             <div *ngIf="submitted && transferForm.invalid" class="invalid-message">
                 Please fill all the required fields !!
             </div>
-            <button type="submit">TRANSFER</button>
+            <button *ngIf="!(transferForm.valid && submitted && goBackFlag && payAgainFlag)" type="submit">TRANSFER</button>
+            <br>
+            <div *ngIf="transferForm.valid && submitted && goBackFlag && payAgainFlag" class="navigation">
+              <button (click)="payAgain()" type="button">PAY AGAIN</button>
+              <button (click)="goBack()" type="button">GO BACK</button>
+            </div>
+
             <br>
         </form>
+    </div>
     </div>
 </section>
 

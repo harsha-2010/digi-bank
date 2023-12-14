@@ -2,15 +2,17 @@ img{
 	width: 100%;
 }
 .signup {
-    height: 800px;
+    margin: auto;
+    display: block;
+    height: 1100px;
     width: 100%;
-    background: radial-gradient(#653d84, #332042);
+    /* background: radial-gradient(#653d84, #332042); */
     position: relative;
     font-family: 'Times New Roman', Times, serif;
 }
 .signup_box {
-    width: 1050px;
-    height: 750px;
+    width: 1000px;
+    height: 1000px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,7 +24,7 @@ img{
     overflow: hidden;
 }
 .signup_box .left{
-  width: 41%;
+  width: 50%;
   height: 100%;
   padding: 25px 25px;
   
@@ -36,7 +38,8 @@ img{
     font-weight: 400;
 }
 .left .top_link{
-  height: 20px
+  height: 20px;
+  /* margin-bottom: 30px; */
 }
 .left .contact{
 	display: flex;
@@ -51,18 +54,37 @@ img{
   text-align: center;
   margin-bottom: 20px;
   margin-top: 30px;
+  color: black;
 }
 .left input {
     border: none;
-    width: 100%;
+    width: 150%;
     margin: 15px 0px;
-    border-bottom: 1px solid #4f30677d;
+    border-bottom: 1px solid black;
     padding: 7px 9px;
     overflow: hidden;
     background: transparent;
     font-weight: 600;
     font-size: 14px;
+    margin-top: -15px;
+    margin-left: -50px;
 }
+.left label {
+  display: flex;
+  border: none;
+  width: 150%; /* Adjust the width as needed */
+  margin: 20px auto; /* Center the input fields */
+  padding: 7px 5px;
+  overflow: hidden;
+  background: transparent;
+  font-weight: 600;
+  font-size: medium;
+  box-sizing: border-box;
+  color: black;
+  margin-bottom: -5px;
+  margin-left: -50px;
+}
+
 .left{
 	background: linear-gradient(-45deg, #dcd7e0, #fff);
 }
@@ -73,27 +95,33 @@ button {
     display: block;
     margin: auto;
     margin-top: 30px;
-    background: #583672;
+    margin-bottom: 10px;
+    background: rgb(50, 50, 50);
     color: #fff;
     font-weight: bold;
-    -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-    -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-    box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-}
-
-.error-message {
-  color: red;
-  padding-left: 5px;
+    font-size: medium;
+    -webkit-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+    -moz-box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
+    box-shadow: 0px 9px 15px -11px rgb(50, 50, 50);
 }
 
 .invalid-message {
   color: red;
-  margin-left: 30px;
-  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: large;
+}
+
+.error-message {
+  color: red;
+  margin-top: -10px;
+  font-size: medium;
+  margin-left: -45px;
 }
 
 .right {
-	background: linear-gradient(212.38deg, rgba(242, 57, 127, 0.7) 0%, rgba(175, 70, 189, 0.71) 100%),url(https://static.seattletimes.com/wp-content/uploads/2019/01/web-typing-ergonomics-1020x680.jpg);
+	/* background: linear-gradient(212.38deg, rgba(242, 57, 127, 0.7) 0%, rgba(175, 70, 189, 0.71) 100%),url(https://static.seattletimes.com/wp-content/uploads/2019/01/web-typing-ergonomics-1020x680.jpg); */
+	background: url(https://static.seattletimes.com/wp-content/uploads/2019/01/web-typing-ergonomics-1020x680.jpg);
 	color: #fff;
 	position: relative;
 }
@@ -102,6 +130,7 @@ button {
   height: 90%;
   position: relative;
   transform: translate(0%, 45%);
+  color: black;
 }
 .right-text h2{
   display: block;
@@ -133,5 +162,30 @@ button {
     margin-top: -3px;
 }
 
+#particles {
+  background-color: black;
+  height: 1100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
+.content-overlay {
+  position: absolute;
+  top: 100%; /* Adjust this value as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* text-align: center; */
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  z-index: 2; /* Ensure the content is above the particles.js background */
+}
 
+.required {
+  margin-top: -5px;
+  padding-left: 3px;
+  color: red;
+  font-size: large;
+}

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountSummaryComponent } from './account-summary.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AccountService } from '../services/account.service';
 
 describe('AccountSummaryComponent', () => {
   let component: AccountSummaryComponent;
@@ -8,7 +10,9 @@ describe('AccountSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AccountSummaryComponent]
+      imports: [HttpClientTestingModule],
+      declarations: [AccountSummaryComponent],
+      providers: [AccountService],
     })
     .compileComponents();
     
@@ -17,7 +21,8 @@ describe('AccountSummaryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
+    const component: AccountSummaryComponent = TestBed.get(AccountSummaryComponent);
     expect(component).toBeTruthy();
-  });
+   });
 });

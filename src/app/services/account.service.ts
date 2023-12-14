@@ -1,7 +1,7 @@
 // account.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { Account } from '../models/account';
 import { Transactions } from '../models/transactions';
 import { CookieService } from 'ngx-cookie-service';
@@ -14,6 +14,7 @@ export class AccountService {
   private apiUrlTransactions = 'http://localhost:3000/Transactions';
   currentAccountNumber!: string;
   currentAccount!: Account | undefined;
+  currentAccountBalance!: number;
   private readonly ACCOUNT_COOKIE_KEY = 'account_cookie';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
@@ -82,6 +83,27 @@ export class AccountService {
       }
     );
   }
+
+  public getAccountBalance(accountNumber: string): Observable<number> {
+    return this.getAccountDetailsByAccountNumber(accountNumber).pipe(
+      map((data) => {
+        const currentAccount = data.find((account) => account.accountNumber === accountNumber);
+        if (currentAccount) {
+          // Return the available balance
+          return currentAccount.availableBalance;
+        } else {
+          // Handle the case where the account is not found
+          throw new Error('Account not found');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error fetching account details:', error);
+        // Forward the error
+        throw error;
+      })
+    );
+  }
+  
   
 
   public getTransactions(accountNumber: string): Observable<Transactions[]> {
@@ -190,8 +212,11 @@ export class AccountService {
   }
   
   public generateIfscCode(zip: number): string {
-    const minBalance = 0
-    const maxBalance = 9;
-    return "DIGI"+ (Math.random() * (maxBalance - minBalance + 1) + minBalance).toString() + zip.toString()
+    return "DIGI"+ Math.floor(Math.random() * 10).toString() + zip.toString()
+  }
+
+  logout(): void {
+    this.currentAccount = undefined;
+    this.cookieService.delete(this.ACCOUNT_COOKIE_KEY);
   }
 }

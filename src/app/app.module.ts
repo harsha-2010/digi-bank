@@ -21,6 +21,7 @@ import { TransferService } from './services/transfer.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
+import { CurrencyConfigurationService } from './services/currency-configuration.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { HomeComponent } from './home/home.component';
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [TransferService, CookieService
+  providers: [TransferService, CookieService, LoginComponent, CurrencyConfigurationService
   ],
   bootstrap: [AppComponent]
 })
