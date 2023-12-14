@@ -4,8 +4,6 @@ DIGIBANK, an Angular-based banking application, delivers a user-friendly digital
 
 To facilitate development and testing, DIGIBANK employs a JSON server for data simulation, eliminating the need for an extensive backend infrastructure. The Angular framework powers the frontend, delivering an intuitive interface and effectively handling user interactions. To run the application, users can clone the repository, install dependencies, and start the Angular application alongside the JSON server.
 
-As part of DIGIBANK's future enhancements, the application aims to implement advanced security measures such as two-factor authentication. Furthermore, users can expect customizable profiles for a personalized experience. In the long term, DIGIBANK plans to integrate a real backend for production deployment. DIGIBANK stands out for its commitment to simplicity, security, and functionality, catering to users in search of a modern and efficient digital banking solution.
-
 ## 1. Environment Setup and Testing
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
@@ -21,6 +19,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 ### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+### Installing & Running JSON Server
+
+Run `npm install -g json-server@latest` to install the latest version of JSON server.
+
+Run `json-server --watch db.json` to start the JSON server.
 
 ### Running unit tests
 
