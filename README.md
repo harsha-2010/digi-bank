@@ -22,9 +22,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### Installing & Running JSON Server
 
-Run `npm install -g json-server@latest` to install the latest version of JSON server.
+Run `npm install -g json-server@latest` to install the latest version of JSON server. 
 
-Run `json-server --watch db.json` to start the JSON server.
+Run `json-server --watch db.json` to start the JSON server. Navigate to `http://localhost:3000/`. The data in the db.json will automatically gets updated with user interactions.
+
+Run `http://localhost:3000/Users` to view the list of users in the JSON server.
+Run `http://localhost:3000/Accounts` to view the list of accounts in the JSON server.
+Run `http://localhost:3000/Transactions` to view the list of transactions in the JSON server.
 
 ### Running unit tests
 
@@ -35,6 +39,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## 2. Project Structure
+
+### Models
+* Users
+* Account
+* Transactions
 
 ### Components
 * LoginComponent
@@ -53,8 +62,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 * TransferService
 * CurrencyConfigurationService
 
+### Pipes
+* HighlightPipe
+
 ### Guard
 * AuthGuard
+
+### JSON Server Structure
+* db.json
+  * Users {}
+  * Accounts {}
+  * Trnsactions {}
 
 ## Further help
 
