@@ -27,7 +27,9 @@ Run `npm install -g json-server@latest` to install the latest version of JSON se
 Run `json-server --watch db.json` to start the JSON server. Navigate to `http://localhost:3000/`. The data in the db.json will automatically gets updated with user interactions.
 
 Run `http://localhost:3000/Users` to view the list of users in the JSON server.
+
 Run `http://localhost:3000/Accounts` to view the list of accounts in the JSON server.
+
 Run `http://localhost:3000/Transactions` to view the list of transactions in the JSON server.
 
 ### Running unit tests
